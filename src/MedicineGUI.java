@@ -3,1282 +3,1282 @@ import java.awt.*;
 
 public class MedicineGUI {
 
-    static JFrame frame;
-    static JPanel contentPanel;
+        static JFrame frame;
+        static JPanel contentPanel;
 
-    public static void main(String[] args) {
+        public static void main(String[] args) {
 
-        // ==============================
-        // MAIN WINDOW
-        // ==============================
+                // ==============================
+                // MAIN WINDOW
+                // ==============================
 
-        frame = new JFrame("Medicine Management");
+                frame = new JFrame("Medicine Management");
 
-        frame.setSize(950, 650);
+                frame.setSize(950, 650);
 
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        frame.setLocationRelativeTo(null);
+                frame.setLocationRelativeTo(null);
 
-        frame.setLayout(new BorderLayout());
+                frame.setLayout(new BorderLayout());
 
-        // ==============================
-        // LEFT NAVIGATION BAR
-        // ==============================
+                // ==============================
+                // LEFT NAVIGATION BAR
+                // ==============================
 
-        JPanel menuPanel = new JPanel();
+                JPanel menuPanel = new JPanel();
 
-        menuPanel.setPreferredSize(
-                new Dimension(190, 650));
+                menuPanel.setPreferredSize(
+                                new Dimension(190, 650));
 
-        menuPanel.setLayout(
-                new GridLayout(6, 1, 5, 5));
+                menuPanel.setLayout(
+                                new GridLayout(6, 1, 5, 5));
 
-        menuPanel.setBorder(
-                BorderFactory.createEmptyBorder(
-                        15, 10, 15, 10));
+                menuPanel.setBorder(
+                                BorderFactory.createEmptyBorder(
+                                                15, 10, 15, 10));
 
-        JButton dashboardButton = new JButton("Dashboard");
+                JButton dashboardButton = new JButton("Dashboard");
 
-        JButton addMedicineButton = new JButton("Add Medicine");
+                JButton addMedicineButton = new JButton("Add Medicine");
 
-        JButton manageButton = new JButton("Manage Medicines");
+                JButton manageButton = new JButton("Manage Medicines");
 
-        JButton searchButton = new JButton("Search Medicine");
+                JButton searchButton = new JButton("Search Medicine");
 
-        JButton viewButton = new JButton("View Medicines");
+                JButton viewButton = new JButton("View Medicines");
 
-        JButton stockExpiryButton = new JButton("Stock & Expiry");
+                JButton stockExpiryButton = new JButton("Stock & Expiry");
 
-        // Smaller navbar text
+                // Smaller navbar text
 
-        dashboardButton.setFont(
-                new Font("Arial", Font.PLAIN, 13));
+                dashboardButton.setFont(
+                                new Font("Arial", Font.PLAIN, 13));
 
-        addMedicineButton.setFont(
-                new Font("Arial", Font.PLAIN, 13));
+                addMedicineButton.setFont(
+                                new Font("Arial", Font.PLAIN, 13));
 
-        manageButton.setFont(
-                new Font("Arial", Font.PLAIN, 13));
+                manageButton.setFont(
+                                new Font("Arial", Font.PLAIN, 13));
 
-        searchButton.setFont(
-                new Font("Arial", Font.PLAIN, 13));
+                searchButton.setFont(
+                                new Font("Arial", Font.PLAIN, 13));
 
-        viewButton.setFont(
-                new Font("Arial", Font.PLAIN, 13));
+                viewButton.setFont(
+                                new Font("Arial", Font.PLAIN, 13));
 
-        stockExpiryButton.setFont(
-                new Font("Arial", Font.PLAIN, 13));
+                stockExpiryButton.setFont(
+                                new Font("Arial", Font.PLAIN, 13));
 
-        menuPanel.add(dashboardButton);
-        menuPanel.add(addMedicineButton);
-        menuPanel.add(manageButton);
-        menuPanel.add(searchButton);
-        menuPanel.add(viewButton);
-        menuPanel.add(stockExpiryButton);
+                menuPanel.add(dashboardButton);
+                menuPanel.add(addMedicineButton);
+                menuPanel.add(manageButton);
+                menuPanel.add(searchButton);
+                menuPanel.add(viewButton);
+                menuPanel.add(stockExpiryButton);
 
-        // ==============================
-        // CONTENT AREA
-        // ==============================
+                // ==============================
+                // CONTENT AREA
+                // ==============================
 
-        contentPanel = new JPanel();
+                contentPanel = new JPanel();
 
-        contentPanel.setLayout(
-                new BorderLayout());
+                contentPanel.setLayout(
+                                new BorderLayout());
 
-        contentPanel.setBorder(
-                BorderFactory.createEmptyBorder(
-                        20, 25, 20, 25));
+                contentPanel.setBorder(
+                                BorderFactory.createEmptyBorder(
+                                                20, 25, 20, 25));
 
-        frame.add(
-                menuPanel,
-                BorderLayout.WEST);
+                frame.add(
+                                menuPanel,
+                                BorderLayout.WEST);
 
-        frame.add(
-                contentPanel,
-                BorderLayout.CENTER);
+                frame.add(
+                                contentPanel,
+                                BorderLayout.CENTER);
 
-        // ==============================
-        // NAVIGATION
-        // ==============================
+                // ==============================
+                // NAVIGATION
+                // ==============================
 
-        dashboardButton.addActionListener(e -> showDashboard());
+                dashboardButton.addActionListener(e -> showDashboard());
 
-        addMedicineButton.addActionListener(e -> showAddMedicine());
+                addMedicineButton.addActionListener(e -> showAddMedicine());
 
-        manageButton.addActionListener(e -> showManageMedicines());
+                manageButton.addActionListener(e -> showManageMedicines());
 
-        searchButton.addActionListener(e -> showSearchMedicine());
+                searchButton.addActionListener(e -> showSearchMedicine());
 
-        viewButton.addActionListener(e -> showViewMedicines());
+                viewButton.addActionListener(e -> showViewMedicines());
 
-        stockExpiryButton.addActionListener(e -> showStockExpiry());
+                stockExpiryButton.addActionListener(e -> showStockExpiry());
 
-        showDashboard();
+                showDashboard();
 
-        frame.setVisible(true);
-    }
+                frame.setVisible(true);
+        }
 
-    // =====================================================
-    // DASHBOARD
-    // =====================================================
+        // =====================================================
+        // DASHBOARD
+        // =====================================================
 
-    // =====================================================
-    // DASHBOARD
-    // =====================================================
+        // =====================================================
+        // DASHBOARD
+        // =====================================================
 
-    static void showDashboard() {
+        static void showDashboard() {
 
-        contentPanel.removeAll();
+                contentPanel.removeAll();
 
-        JLabel title = new JLabel(
-                "Medicine Management System",
-                SwingConstants.CENTER);
+                JLabel title = new JLabel(
+                                "Medicine Management System",
+                                SwingConstants.CENTER);
 
-        title.setFont(
-                new Font(
-                        "Arial",
-                        Font.BOLD,
-                        26));
+                title.setFont(
+                                new Font(
+                                                "Arial",
+                                                Font.BOLD,
+                                                26));
 
-        contentPanel.setLayout(
-                new BorderLayout());
+                contentPanel.setLayout(
+                                new BorderLayout());
 
-        contentPanel.add(
-                title,
-                BorderLayout.CENTER);
+                contentPanel.add(
+                                title,
+                                BorderLayout.CENTER);
 
-        contentPanel.revalidate();
-        contentPanel.repaint();
-    }
-    // =====================================================
-    // ADD MEDICINE
-    // =====================================================
+                contentPanel.revalidate();
+                contentPanel.repaint();
+        }
+        // =====================================================
+        // ADD MEDICINE
+        // =====================================================
 
-    static void showAddMedicine() {
+        static void showAddMedicine() {
 
-        contentPanel.removeAll();
+                contentPanel.removeAll();
 
-        JPanel panel = new JPanel();
+                JPanel panel = new JPanel();
 
-        panel.setLayout(
-                new GridLayout(
-                        9,
-                        2,
-                        10,
-                        10));
+                panel.setLayout(
+                                new GridLayout(
+                                                9,
+                                                2,
+                                                10,
+                                                10));
 
-        panel.setBorder(
-                BorderFactory.createEmptyBorder(
-                        20,
-                        40,
-                        20,
-                        40));
+                panel.setBorder(
+                                BorderFactory.createEmptyBorder(
+                                                20,
+                                                40,
+                                                20,
+                                                40));
 
-        JLabel title = new JLabel("Add Medicine");
+                JLabel title = new JLabel("Add Medicine");
 
-        title.setFont(
-                new Font(
-                        "Arial",
-                        Font.BOLD,
-                        22));
+                title.setFont(
+                                new Font(
+                                                "Arial",
+                                                Font.BOLD,
+                                                22));
 
-        JTextField idField = new JTextField();
+                JTextField idField = new JTextField();
 
-        JTextField nameField = new JTextField();
+                JTextField nameField = new JTextField();
 
-        JTextField categoryField = new JTextField();
+                JTextField categoryField = new JTextField();
 
-        JTextField priceField = new JTextField();
+                JTextField priceField = new JTextField();
 
-        JTextField quantityField = new JTextField();
+                JTextField quantityField = new JTextField();
 
-        JTextField expiryField = new JTextField();
+                JTextField expiryField = new JTextField();
 
-        JCheckBox prescriptionBox = new JCheckBox("Yes");
+                JCheckBox prescriptionBox = new JCheckBox("Yes");
 
-        JButton addButton = new JButton("Add Medicine");
+                JButton addButton = new JButton("Add Medicine");
 
-        // Field size
+                // Field size
 
-        idField.setPreferredSize(
-                new Dimension(200, 28));
+                idField.setPreferredSize(
+                                new Dimension(200, 28));
 
-        nameField.setPreferredSize(
-                new Dimension(200, 28));
+                nameField.setPreferredSize(
+                                new Dimension(200, 28));
 
-        categoryField.setPreferredSize(
-                new Dimension(200, 28));
+                categoryField.setPreferredSize(
+                                new Dimension(200, 28));
 
-        priceField.setPreferredSize(
-                new Dimension(200, 28));
+                priceField.setPreferredSize(
+                                new Dimension(200, 28));
 
-        quantityField.setPreferredSize(
-                new Dimension(200, 28));
+                quantityField.setPreferredSize(
+                                new Dimension(200, 28));
 
-        expiryField.setPreferredSize(
-                new Dimension(200, 28));
+                expiryField.setPreferredSize(
+                                new Dimension(200, 28));
 
-        panel.add(title);
-        panel.add(new JLabel(""));
+                panel.add(title);
+                panel.add(new JLabel(""));
 
-        panel.add(
-                new JLabel("Medicine ID:"));
+                panel.add(
+                                new JLabel("Medicine ID:"));
 
-        panel.add(idField);
+                panel.add(idField);
 
-        panel.add(
-                new JLabel("Medicine Name:"));
+                panel.add(
+                                new JLabel("Medicine Name:"));
 
-        panel.add(nameField);
+                panel.add(nameField);
 
-        panel.add(
-                new JLabel("Category:"));
+                panel.add(
+                                new JLabel("Category:"));
 
-        panel.add(categoryField);
+                panel.add(categoryField);
 
-        panel.add(
-                new JLabel("Price:"));
+                panel.add(
+                                new JLabel("Price:"));
 
-        panel.add(priceField);
+                panel.add(priceField);
 
-        panel.add(
-                new JLabel("Quantity:"));
+                panel.add(
+                                new JLabel("Quantity:"));
 
-        panel.add(quantityField);
+                panel.add(quantityField);
 
-        panel.add(
-                new JLabel("Expiry Date:"));
+                panel.add(
+                                new JLabel("Expiry Date:"));
 
-        panel.add(expiryField);
+                panel.add(expiryField);
 
-        panel.add(
-                new JLabel(
-                        "Prescription Required:"));
+                panel.add(
+                                new JLabel(
+                                                "Prescription Required:"));
 
-        panel.add(prescriptionBox);
+                panel.add(prescriptionBox);
 
-        panel.add(new JLabel(""));
-        panel.add(addButton);
+                panel.add(new JLabel(""));
+                panel.add(addButton);
 
-        // ==============================
-        // ADD TO MYSQL
-        // ==============================
+                // ==============================
+                // ADD TO MYSQL
+                // ==============================
 
-        addButton.addActionListener(e -> {
+                addButton.addActionListener(e -> {
 
-            try {
+                        try {
 
-                int id = Integer.parseInt(
-                        idField.getText());
+                                int id = Integer.parseInt(
+                                                idField.getText());
 
-                String name = nameField.getText();
+                                String name = nameField.getText();
 
-                String category = categoryField.getText();
+                                String category = categoryField.getText();
 
-                double price = Double.parseDouble(
-                        priceField.getText());
+                                double price = Double.parseDouble(
+                                                priceField.getText());
 
-                int quantity = Integer.parseInt(
-                        quantityField.getText());
+                                int quantity = Integer.parseInt(
+                                                quantityField.getText());
 
-                String expiryDate = expiryField.getText();
+                                String expiryDate = expiryField.getText();
 
-                boolean prescriptionRequired = prescriptionBox.isSelected();
+                                boolean prescriptionRequired = prescriptionBox.isSelected();
 
-                Medicine medicine = new Medicine(
-                        id,
-                        name,
-                        category,
-                        price,
-                        quantity,
-                        expiryDate,
-                        prescriptionRequired);
+                                Medicine medicine = new Medicine(
+                                                id,
+                                                name,
+                                                category,
+                                                price,
+                                                quantity,
+                                                expiryDate,
+                                                prescriptionRequired);
+
+                                MedicineDAO dao = new MedicineDAO();
+
+                                boolean result = dao.addMedicine(medicine);
+
+                                if (result) {
+
+                                        JOptionPane.showMessageDialog(
+                                                        frame,
+                                                        "Medicine added successfully!");
+
+                                        idField.setText("");
+                                        nameField.setText("");
+                                        categoryField.setText("");
+                                        priceField.setText("");
+                                        quantityField.setText("");
+                                        expiryField.setText("");
+
+                                        prescriptionBox.setSelected(false);
+
+                                } else {
+
+                                        JOptionPane.showMessageDialog(
+                                                        frame,
+                                                        "Medicine could not be added.");
+                                }
+
+                        } catch (Exception ex) {
+
+                                JOptionPane.showMessageDialog(
+                                                frame,
+                                                "Please enter valid details.");
+                        }
+                });
+
+                contentPanel.add(
+                                panel,
+                                BorderLayout.CENTER);
+
+                contentPanel.revalidate();
+                contentPanel.repaint();
+        }
+
+        // =====================================================
+        // MANAGE MEDICINES
+        // =====================================================
+
+        // =====================================================
+        // MANAGE MEDICINES
+        // =====================================================
+
+        static void showManageMedicines() {
+
+                contentPanel.removeAll();
+
+                JPanel mainPanel = new JPanel();
+
+                mainPanel.setLayout(
+                                new BoxLayout(
+                                                mainPanel,
+                                                BoxLayout.Y_AXIS));
+
+                mainPanel.setBorder(
+                                BorderFactory.createEmptyBorder(
+                                                40,
+                                                80,
+                                                40,
+                                                80));
+
+                JLabel title = new JLabel(
+                                "Manage Medicines");
+
+                title.setFont(
+                                new Font(
+                                                "Arial",
+                                                Font.BOLD,
+                                                23));
+
+                title.setAlignmentX(
+                                Component.CENTER_ALIGNMENT);
+
+                mainPanel.add(title);
+
+                mainPanel.add(
+                                Box.createVerticalStrut(25));
+
+                // ==============================
+                // SELECT MEDICINE
+                // ==============================
+
+                JPanel selectionPanel = new JPanel(
+                                new FlowLayout(
+                                                FlowLayout.CENTER,
+                                                10,
+                                                5));
+
+                JLabel selectLabel = new JLabel(
+                                "Select Medicine:");
+
+                JComboBox<String> medicineList = new JComboBox<>();
+
+                medicineList.setPreferredSize(
+                                new Dimension(
+                                                200,
+                                                28));
+
+                // First option
+
+                medicineList.addItem(
+                                "Select Medicine");
+
+                // ==============================
+                // LOAD MEDICINES FROM MYSQL
+                // ==============================
 
                 MedicineDAO dao = new MedicineDAO();
 
-                boolean result = dao.addMedicine(medicine);
+                java.util.ArrayList<Medicine> medicines = dao.getAllMedicines();
 
-                if (result) {
+                for (Medicine medicine : medicines) {
 
-                    JOptionPane.showMessageDialog(
-                            frame,
-                            "Medicine added successfully!");
-
-                    idField.setText("");
-                    nameField.setText("");
-                    categoryField.setText("");
-                    priceField.setText("");
-                    quantityField.setText("");
-                    expiryField.setText("");
-
-                    prescriptionBox.setSelected(false);
-
-                } else {
-
-                    JOptionPane.showMessageDialog(
-                            frame,
-                            "Medicine could not be added.");
+                        medicineList.addItem(
+                                        medicine.getId()
+                                                        + " - "
+                                                        + medicine.getName());
                 }
 
-            } catch (Exception ex) {
+                selectionPanel.add(selectLabel);
 
-                JOptionPane.showMessageDialog(
-                        frame,
-                        "Please enter valid details.");
-            }
-        });
+                selectionPanel.add(medicineList);
 
-        contentPanel.add(
-                panel,
-                BorderLayout.CENTER);
+                mainPanel.add(selectionPanel);
 
-        contentPanel.revalidate();
-        contentPanel.repaint();
-    }
+                mainPanel.add(
+                                Box.createVerticalStrut(15));
 
-    // =====================================================
-    // MANAGE MEDICINES
-    // =====================================================
+                // ==============================
+                // UPDATE / DELETE BUTTONS
+                // ==============================
 
-    // =====================================================
-    // MANAGE MEDICINES
-    // =====================================================
+                JPanel buttonPanel = new JPanel(
+                                new FlowLayout(
+                                                FlowLayout.CENTER,
+                                                12,
+                                                5));
 
-    static void showManageMedicines() {
+                JButton updateButton = new JButton("Update");
 
-        contentPanel.removeAll();
+                JButton deleteButton = new JButton("Delete");
 
-        JPanel mainPanel = new JPanel();
+                updateButton.setPreferredSize(
+                                new Dimension(
+                                                100,
+                                                30));
 
-        mainPanel.setLayout(
-                new BoxLayout(
-                        mainPanel,
-                        BoxLayout.Y_AXIS));
+                deleteButton.setPreferredSize(
+                                new Dimension(
+                                                100,
+                                                30));
 
-        mainPanel.setBorder(
-                BorderFactory.createEmptyBorder(
-                        40,
-                        80,
-                        40,
-                        80));
+                updateButton.setFont(
+                                new Font(
+                                                "Arial",
+                                                Font.PLAIN,
+                                                13));
 
-        JLabel title = new JLabel(
-                "Manage Medicines");
+                deleteButton.setFont(
+                                new Font(
+                                                "Arial",
+                                                Font.PLAIN,
+                                                13));
 
-        title.setFont(
-                new Font(
-                        "Arial",
-                        Font.BOLD,
-                        23));
+                buttonPanel.add(updateButton);
 
-        title.setAlignmentX(
-                Component.CENTER_ALIGNMENT);
+                buttonPanel.add(deleteButton);
 
-        mainPanel.add(title);
+                mainPanel.add(buttonPanel);
 
-        mainPanel.add(
-                Box.createVerticalStrut(25));
+                // =====================================================
+                // UPDATE BUTTON
+                // =====================================================
 
-        // ==============================
-        // SELECT MEDICINE
-        // ==============================
+                updateButton.addActionListener(e -> {
 
-        JPanel selectionPanel = new JPanel(
-                new FlowLayout(
-                        FlowLayout.CENTER,
-                        10,
-                        5));
+                        if (medicineList.getSelectedIndex() == 0) {
 
-        JLabel selectLabel = new JLabel(
-                "Select Medicine:");
+                                JOptionPane.showMessageDialog(
+                                                frame,
+                                                "Please select a medicine.");
 
-        JComboBox<String> medicineList = new JComboBox<>();
+                                return;
+                        }
 
-        medicineList.setPreferredSize(
-                new Dimension(
-                        200,
-                        28));
+                        String selected = medicineList
+                                        .getSelectedItem()
+                                        .toString();
 
-        // First option
+                        // Get ID from "101 - Paracetamol"
 
-        medicineList.addItem(
-                "Select Medicine");
+                        int id = Integer.parseInt(
+                                        selected
+                                                        .split(" - ")[0]);
 
-        // ==============================
-        // LOAD MEDICINES FROM MYSQL
-        // ==============================
+                        showUpdateMedicine(id);
+                });
 
-        MedicineDAO dao = new MedicineDAO();
+                // =====================================================
+                // DELETE BUTTON
+                // =====================================================
 
-        java.util.ArrayList<Medicine> medicines = dao.getAllMedicines();
+                deleteButton.addActionListener(e -> {
 
-        for (Medicine medicine : medicines) {
+                        if (medicineList.getSelectedIndex() == 0) {
 
-            medicineList.addItem(
-                    medicine.getId()
-                            + " - "
-                            + medicine.getName());
+                                JOptionPane.showMessageDialog(
+                                                frame,
+                                                "Please select a medicine.");
+
+                                return;
+                        }
+
+                        String selected = medicineList
+                                        .getSelectedItem()
+                                        .toString();
+
+                        int id = Integer.parseInt(
+                                        selected
+                                                        .split(" - ")[0]);
+
+                        String medicineName = selected
+                                        .substring(
+                                                        selected.indexOf(" - ") + 3);
+
+                        int choice = JOptionPane.showConfirmDialog(
+                                        frame,
+                                        "Delete "
+                                                        + medicineName
+                                                        + "?",
+                                        "Confirm Delete",
+                                        JOptionPane.YES_NO_OPTION);
+
+                        if (choice == JOptionPane.YES_OPTION) {
+
+                                MedicineDAO deleteDAO = new MedicineDAO();
+
+                                boolean result = deleteDAO.deleteMedicine(id);
+
+                                if (result) {
+
+                                        JOptionPane.showMessageDialog(
+                                                        frame,
+                                                        medicineName
+                                                                        + " deleted successfully.");
+
+                                        // Refresh the Manage Medicines screen
+
+                                        showManageMedicines();
+
+                                } else {
+
+                                        JOptionPane.showMessageDialog(
+                                                        frame,
+                                                        "Medicine could not be deleted.");
+                                }
+                        }
+                });
+
+                contentPanel.add(
+                                mainPanel,
+                                BorderLayout.CENTER);
+
+                contentPanel.revalidate();
+
+                contentPanel.repaint();
         }
 
-        selectionPanel.add(selectLabel);
-
-        selectionPanel.add(medicineList);
-
-        mainPanel.add(selectionPanel);
-
-        mainPanel.add(
-                Box.createVerticalStrut(15));
-
-        // ==============================
-        // UPDATE / DELETE BUTTONS
-        // ==============================
-
-        JPanel buttonPanel = new JPanel(
-                new FlowLayout(
-                        FlowLayout.CENTER,
-                        12,
-                        5));
-
-        JButton updateButton = new JButton("Update");
-
-        JButton deleteButton = new JButton("Delete");
-
-        updateButton.setPreferredSize(
-                new Dimension(
-                        100,
-                        30));
-
-        deleteButton.setPreferredSize(
-                new Dimension(
-                        100,
-                        30));
-
-        updateButton.setFont(
-                new Font(
-                        "Arial",
-                        Font.PLAIN,
-                        13));
-
-        deleteButton.setFont(
-                new Font(
-                        "Arial",
-                        Font.PLAIN,
-                        13));
-
-        buttonPanel.add(updateButton);
-
-        buttonPanel.add(deleteButton);
-
-        mainPanel.add(buttonPanel);
-
         // =====================================================
-        // UPDATE BUTTON
+        // UPDATE MEDICINE
         // =====================================================
 
-        updateButton.addActionListener(e -> {
+        static void showUpdateMedicine(int id) {
 
-            if (medicineList.getSelectedIndex() == 0) {
+                contentPanel.removeAll();
 
-                JOptionPane.showMessageDialog(
-                        frame,
-                        "Please select a medicine.");
+                // ==============================
+                // GET MEDICINE FROM MYSQL
+                // ==============================
 
-                return;
-            }
-
-            String selected = medicineList
-                    .getSelectedItem()
-                    .toString();
-
-            // Get ID from "101 - Paracetamol"
-
-            int id = Integer.parseInt(
-                    selected
-                            .split(" - ")[0]);
-
-            showUpdateMedicine(id);
-        });
-
-        // =====================================================
-        // DELETE BUTTON
-        // =====================================================
-
-        deleteButton.addActionListener(e -> {
-
-            if (medicineList.getSelectedIndex() == 0) {
-
-                JOptionPane.showMessageDialog(
-                        frame,
-                        "Please select a medicine.");
-
-                return;
-            }
-
-            String selected = medicineList
-                    .getSelectedItem()
-                    .toString();
-
-            int id = Integer.parseInt(
-                    selected
-                            .split(" - ")[0]);
-
-            String medicineName = selected
-                    .substring(
-                            selected.indexOf(" - ") + 3);
-
-            int choice = JOptionPane.showConfirmDialog(
-                    frame,
-                    "Delete "
-                            + medicineName
-                            + "?",
-                    "Confirm Delete",
-                    JOptionPane.YES_NO_OPTION);
-
-            if (choice == JOptionPane.YES_OPTION) {
-
-                MedicineDAO deleteDAO = new MedicineDAO();
-
-                boolean result = deleteDAO.deleteMedicine(id);
-
-                if (result) {
-
-                    JOptionPane.showMessageDialog(
-                            frame,
-                            medicineName
-                                    + " deleted successfully.");
-
-                    // Refresh the Manage Medicines screen
-
-                    showManageMedicines();
-
-                } else {
-
-                    JOptionPane.showMessageDialog(
-                            frame,
-                            "Medicine could not be deleted.");
-                }
-            }
-        });
-
-        contentPanel.add(
-                mainPanel,
-                BorderLayout.CENTER);
-
-        contentPanel.revalidate();
-
-        contentPanel.repaint();
-    }
-
-    // =====================================================
-    // UPDATE MEDICINE
-    // =====================================================
-
-    static void showUpdateMedicine(int id) {
-
-        contentPanel.removeAll();
-
-        // ==============================
-        // GET MEDICINE FROM MYSQL
-        // ==============================
-
-        MedicineDAO dao = new MedicineDAO();
-
-        Medicine medicine = dao.searchMedicineById(id);
-
-        if (medicine == null) {
-
-            JOptionPane.showMessageDialog(
-                    frame,
-                    "Medicine not found.");
-
-            showManageMedicines();
-
-            return;
-        }
-
-        JPanel mainPanel = new JPanel();
-
-        mainPanel.setLayout(
-                new BorderLayout());
-
-        mainPanel.setBorder(
-                BorderFactory.createEmptyBorder(
-                        20,
-                        50,
-                        20,
-                        50));
-
-        // ==============================
-        // TITLE
-        // ==============================
-
-        JLabel title = new JLabel(
-                "Update Medicine",
-                SwingConstants.CENTER);
-
-        title.setFont(
-                new Font(
-                        "Arial",
-                        Font.BOLD,
-                        22));
-
-        mainPanel.add(
-                title,
-                BorderLayout.NORTH);
-
-        // ==============================
-        // FORM
-        // ==============================
-
-        JPanel formPanel = new JPanel();
-
-        formPanel.setLayout(
-                new GridLayout(
-                        7,
-                        2,
-                        10,
-                        10));
-
-        // ID
-
-        JTextField idField = new JTextField(
-                String.valueOf(
-                        medicine.getId()));
-
-        idField.setEditable(false);
-
-        // Name
-
-        JTextField nameField = new JTextField(
-                medicine.getName());
-
-        // Category
-
-        JTextField categoryField = new JTextField(
-                medicine.getCategory());
-
-        // Price
-
-        JTextField priceField = new JTextField(
-                String.valueOf(
-                        medicine.getPrice()));
-
-        // Quantity
-
-        JTextField quantityField = new JTextField(
-                String.valueOf(
-                        medicine.getQuantity()));
-
-        // Expiry
-
-        JTextField expiryField = new JTextField(
-                medicine.getExpiryDate());
-
-        // Prescription
-
-        JCheckBox prescriptionBox = new JCheckBox("Yes");
-
-        prescriptionBox.setSelected(
-                medicine.isPrescriptionRequired());
-
-        formPanel.add(
-                new JLabel("Medicine ID:"));
-
-        formPanel.add(idField);
-
-        formPanel.add(
-                new JLabel("Medicine Name:"));
-
-        formPanel.add(nameField);
-
-        formPanel.add(
-                new JLabel("Category:"));
-
-        formPanel.add(categoryField);
-
-        formPanel.add(
-                new JLabel("Price:"));
-
-        formPanel.add(priceField);
-
-        formPanel.add(
-                new JLabel("Quantity:"));
-
-        formPanel.add(quantityField);
-
-        formPanel.add(
-                new JLabel("Expiry Date:"));
-
-        formPanel.add(expiryField);
-
-        formPanel.add(
-                new JLabel(
-                        "Prescription Required:"));
-
-        formPanel.add(
-                prescriptionBox);
-
-        mainPanel.add(
-                formPanel,
-                BorderLayout.CENTER);
-
-        // ==============================
-        // UPDATE BUTTON
-        // ==============================
-
-        JButton updateButton = new JButton(
-                "Update Medicine");
-
-        updateButton.setPreferredSize(
-                new Dimension(
-                        140,
-                        30));
-
-        updateButton.setFont(
-                new Font(
-                        "Arial",
-                        Font.PLAIN,
-                        13));
-
-        JPanel buttonPanel = new JPanel(
-                new FlowLayout(
-                        FlowLayout.CENTER));
-
-        buttonPanel.add(
-                updateButton);
-
-        mainPanel.add(
-                buttonPanel,
-                BorderLayout.SOUTH);
-
-        // =====================================================
-        // UPDATE MYSQL
-        // =====================================================
-
-        updateButton.addActionListener(e -> {
-
-            try {
-
-                String name = nameField
-                        .getText()
-                        .trim();
-
-                String category = categoryField
-                        .getText()
-                        .trim();
-
-                double price = Double.parseDouble(
-                        priceField
-                                .getText()
-                                .trim());
-
-                int quantity = Integer.parseInt(
-                        quantityField
-                                .getText()
-                                .trim());
-
-                String expiryDate = expiryField
-                        .getText()
-                        .trim();
-
-                boolean prescription = prescriptionBox
-                        .isSelected();
-
-                Medicine updatedMedicine = new Medicine(
-                        id,
-                        name,
-                        category,
-                        price,
-                        quantity,
-                        expiryDate,
-                        prescription);
-
-                MedicineDAO updateDAO = new MedicineDAO();
-
-                boolean result = updateDAO.updateMedicine(
-                        updatedMedicine);
-
-                if (result) {
-
-                    JOptionPane.showMessageDialog(
-                            frame,
-                            "Medicine updated successfully!");
-
-                    // Return to Manage Medicines
-
-                    showManageMedicines();
-
-                } else {
-
-                    JOptionPane.showMessageDialog(
-                            frame,
-                            "Medicine could not be updated.");
-                }
-
-            } catch (Exception ex) {
-
-                JOptionPane.showMessageDialog(
-                        frame,
-                        "Please enter valid details.");
-            }
-        });
-
-        contentPanel.add(
-                mainPanel,
-                BorderLayout.CENTER);
-
-        contentPanel.revalidate();
-
-        contentPanel.repaint();
-    }
-
-    // =====================================================
-    // SEARCH MEDICINE
-    // =====================================================
-
-    static void showSearchMedicine() {
-
-        contentPanel.removeAll();
-
-        JPanel mainPanel = new JPanel();
-
-        mainPanel.setLayout(
-                new BoxLayout(
-                        mainPanel,
-                        BoxLayout.Y_AXIS));
-
-        mainPanel.setBorder(
-                BorderFactory.createEmptyBorder(
-                        40, 60, 40, 60));
-
-        // ==============================
-        // TITLE
-        // ==============================
-
-        JLabel title = new JLabel("Search Medicine");
-
-        title.setFont(
-                new Font(
-                        "Arial",
-                        Font.BOLD,
-                        23));
-
-        title.setAlignmentX(
-                Component.CENTER_ALIGNMENT);
-
-        mainPanel.add(title);
-
-        mainPanel.add(
-                Box.createVerticalStrut(25));
-
-        // ==============================
-        // SEARCH AREA
-        // ==============================
-
-        JPanel searchPanel = new JPanel(
-                new FlowLayout(
-                        FlowLayout.CENTER,
-                        10,
-                        5));
-
-        JLabel searchLabel = new JLabel(
-                "Medicine Name or ID:");
-
-        JTextField searchField = new JTextField();
-
-        searchField.setPreferredSize(
-                new Dimension(200, 28));
-
-        JButton searchButton = new JButton("Search");
-
-        searchButton.setPreferredSize(
-                new Dimension(85, 28));
-
-        searchPanel.add(searchLabel);
-        searchPanel.add(searchField);
-        searchPanel.add(searchButton);
-
-        mainPanel.add(searchPanel);
-
-        mainPanel.add(
-                Box.createVerticalStrut(20));
-
-        // ==============================
-        // RESULT AREA
-        // ==============================
-
-        JTextArea resultArea = new JTextArea();
-
-        resultArea.setEditable(false);
-
-        resultArea.setFont(
-                new Font(
-                        "Arial",
-                        Font.PLAIN,
-                        14));
-
-        resultArea.setBorder(
-                BorderFactory.createLineBorder(
-                        Color.GRAY));
-
-        JScrollPane resultScroll = new JScrollPane(
-                resultArea);
-
-        resultScroll.setPreferredSize(
-                new Dimension(500, 200));
-
-        mainPanel.add(resultScroll);
-
-        // ==============================
-        // SEARCH BUTTON ACTION
-        // ==============================
-
-        searchButton.addActionListener(e -> {
-
-            String searchText = searchField.getText().trim();
-
-            if (searchText.isEmpty()) {
-
-                JOptionPane.showMessageDialog(
-                        frame,
-                        "Please enter a medicine name or ID.");
-
-                return;
-            }
-
-            MedicineDAO dao = new MedicineDAO();
-
-            // Clear previous result
-
-            resultArea.setText("");
-
-            // ==============================
-            // SEARCH BY ID
-            // ==============================
-
-            try {
-
-                int id = Integer.parseInt(
-                        searchText);
+                MedicineDAO dao = new MedicineDAO();
 
                 Medicine medicine = dao.searchMedicineById(id);
 
-                if (medicine != null) {
+                if (medicine == null) {
 
-                    resultArea.append(
-                            "Medicine ID: "
-                                    + medicine.getId()
-                                    + "\n");
+                        JOptionPane.showMessageDialog(
+                                        frame,
+                                        "Medicine not found.");
 
-                    resultArea.append(
-                            "Name: "
-                                    + medicine.getName()
-                                    + "\n");
+                        showManageMedicines();
 
-                    resultArea.append(
-                            "Category: "
-                                    + medicine.getCategory()
-                                    + "\n");
-
-                    resultArea.append(
-                            "Price: "
-                                    + medicine.getPrice()
-                                    + "\n");
-
-                    resultArea.append(
-                            "Quantity: "
-                                    + medicine.getQuantity()
-                                    + "\n");
-
-                    resultArea.append(
-                            "Expiry Date: "
-                                    + medicine.getExpiryDate()
-                                    + "\n");
-
-                    resultArea.append(
-                            "Prescription Required: "
-                                    + (medicine.isPrescriptionRequired()
-                                            ? "Yes"
-                                            : "No"));
-
-                } else {
-
-                    resultArea.setText(
-                            "No medicine found with ID: "
-                                    + id);
+                        return;
                 }
 
-            } catch (NumberFormatException ex) {
+                JPanel mainPanel = new JPanel();
+
+                mainPanel.setLayout(
+                                new BorderLayout());
+
+                mainPanel.setBorder(
+                                BorderFactory.createEmptyBorder(
+                                                20,
+                                                50,
+                                                20,
+                                                50));
 
                 // ==============================
-                // SEARCH BY NAME
+                // TITLE
                 // ==============================
 
-                java.util.ArrayList<Medicine> medicines = dao.searchMedicineByName(
-                        searchText);
+                JLabel title = new JLabel(
+                                "Update Medicine",
+                                SwingConstants.CENTER);
 
-                if (medicines.isEmpty()) {
+                title.setFont(
+                                new Font(
+                                                "Arial",
+                                                Font.BOLD,
+                                                22));
 
-                    resultArea.setText(
-                            "No medicine found with name: "
-                                    + searchText);
+                mainPanel.add(
+                                title,
+                                BorderLayout.NORTH);
 
-                } else {
+                // ==============================
+                // FORM
+                // ==============================
 
-                    for (Medicine medicine : medicines) {
+                JPanel formPanel = new JPanel();
 
-                        resultArea.append(
-                                "Medicine ID: "
-                                        + medicine.getId()
-                                        + "\n");
+                formPanel.setLayout(
+                                new GridLayout(
+                                                7,
+                                                2,
+                                                10,
+                                                10));
 
-                        resultArea.append(
-                                "Name: "
-                                        + medicine.getName()
-                                        + "\n");
+                // ID
 
-                        resultArea.append(
-                                "Category: "
-                                        + medicine.getCategory()
-                                        + "\n");
+                JTextField idField = new JTextField(
+                                String.valueOf(
+                                                medicine.getId()));
 
-                        resultArea.append(
-                                "Price: "
-                                        + medicine.getPrice()
-                                        + "\n");
+                idField.setEditable(false);
 
-                        resultArea.append(
-                                "Quantity: "
-                                        + medicine.getQuantity()
-                                        + "\n");
+                // Name
 
-                        resultArea.append(
-                                "Expiry Date: "
-                                        + medicine.getExpiryDate()
-                                        + "\n");
+                JTextField nameField = new JTextField(
+                                medicine.getName());
 
-                        resultArea.append(
-                                "Prescription Required: "
-                                        + (medicine.isPrescriptionRequired()
-                                                ? "Yes"
-                                                : "No"));
+                // Category
 
-                        resultArea.append(
-                                "\n\n-------------------------\n\n");
-                    }
+                JTextField categoryField = new JTextField(
+                                medicine.getCategory());
+
+                // Price
+
+                JTextField priceField = new JTextField(
+                                String.valueOf(
+                                                medicine.getPrice()));
+
+                // Quantity
+
+                JTextField quantityField = new JTextField(
+                                String.valueOf(
+                                                medicine.getQuantity()));
+
+                // Expiry
+
+                JTextField expiryField = new JTextField(
+                                medicine.getExpiryDate());
+
+                // Prescription
+
+                JCheckBox prescriptionBox = new JCheckBox("Yes");
+
+                prescriptionBox.setSelected(
+                                medicine.isPrescriptionRequired());
+
+                formPanel.add(
+                                new JLabel("Medicine ID:"));
+
+                formPanel.add(idField);
+
+                formPanel.add(
+                                new JLabel("Medicine Name:"));
+
+                formPanel.add(nameField);
+
+                formPanel.add(
+                                new JLabel("Category:"));
+
+                formPanel.add(categoryField);
+
+                formPanel.add(
+                                new JLabel("Price:"));
+
+                formPanel.add(priceField);
+
+                formPanel.add(
+                                new JLabel("Quantity:"));
+
+                formPanel.add(quantityField);
+
+                formPanel.add(
+                                new JLabel("Expiry Date:"));
+
+                formPanel.add(expiryField);
+
+                formPanel.add(
+                                new JLabel(
+                                                "Prescription Required:"));
+
+                formPanel.add(
+                                prescriptionBox);
+
+                mainPanel.add(
+                                formPanel,
+                                BorderLayout.CENTER);
+
+                // ==============================
+                // UPDATE BUTTON
+                // ==============================
+
+                JButton updateButton = new JButton(
+                                "Update Medicine");
+
+                updateButton.setPreferredSize(
+                                new Dimension(
+                                                140,
+                                                30));
+
+                updateButton.setFont(
+                                new Font(
+                                                "Arial",
+                                                Font.PLAIN,
+                                                13));
+
+                JPanel buttonPanel = new JPanel(
+                                new FlowLayout(
+                                                FlowLayout.CENTER));
+
+                buttonPanel.add(
+                                updateButton);
+
+                mainPanel.add(
+                                buttonPanel,
+                                BorderLayout.SOUTH);
+
+                // =====================================================
+                // UPDATE MYSQL
+                // =====================================================
+
+                updateButton.addActionListener(e -> {
+
+                        try {
+
+                                String name = nameField
+                                                .getText()
+                                                .trim();
+
+                                String category = categoryField
+                                                .getText()
+                                                .trim();
+
+                                double price = Double.parseDouble(
+                                                priceField
+                                                                .getText()
+                                                                .trim());
+
+                                int quantity = Integer.parseInt(
+                                                quantityField
+                                                                .getText()
+                                                                .trim());
+
+                                String expiryDate = expiryField
+                                                .getText()
+                                                .trim();
+
+                                boolean prescription = prescriptionBox
+                                                .isSelected();
+
+                                Medicine updatedMedicine = new Medicine(
+                                                id,
+                                                name,
+                                                category,
+                                                price,
+                                                quantity,
+                                                expiryDate,
+                                                prescription);
+
+                                MedicineDAO updateDAO = new MedicineDAO();
+
+                                boolean result = updateDAO.updateMedicine(
+                                                updatedMedicine);
+
+                                if (result) {
+
+                                        JOptionPane.showMessageDialog(
+                                                        frame,
+                                                        "Medicine updated successfully!");
+
+                                        // Return to Manage Medicines
+
+                                        showManageMedicines();
+
+                                } else {
+
+                                        JOptionPane.showMessageDialog(
+                                                        frame,
+                                                        "Medicine could not be updated.");
+                                }
+
+                        } catch (Exception ex) {
+
+                                JOptionPane.showMessageDialog(
+                                                frame,
+                                                "Please enter valid details.");
+                        }
+                });
+
+                contentPanel.add(
+                                mainPanel,
+                                BorderLayout.CENTER);
+
+                contentPanel.revalidate();
+
+                contentPanel.repaint();
+        }
+
+        // =====================================================
+        // SEARCH MEDICINE
+        // =====================================================
+
+        static void showSearchMedicine() {
+
+                contentPanel.removeAll();
+
+                JPanel mainPanel = new JPanel();
+
+                mainPanel.setLayout(
+                                new BoxLayout(
+                                                mainPanel,
+                                                BoxLayout.Y_AXIS));
+
+                mainPanel.setBorder(
+                                BorderFactory.createEmptyBorder(
+                                                40, 60, 40, 60));
+
+                // ==============================
+                // TITLE
+                // ==============================
+
+                JLabel title = new JLabel("Search Medicine");
+
+                title.setFont(
+                                new Font(
+                                                "Arial",
+                                                Font.BOLD,
+                                                23));
+
+                title.setAlignmentX(
+                                Component.CENTER_ALIGNMENT);
+
+                mainPanel.add(title);
+
+                mainPanel.add(
+                                Box.createVerticalStrut(25));
+
+                // ==============================
+                // SEARCH AREA
+                // ==============================
+
+                JPanel searchPanel = new JPanel(
+                                new FlowLayout(
+                                                FlowLayout.CENTER,
+                                                10,
+                                                5));
+
+                JLabel searchLabel = new JLabel(
+                                "Medicine Name or ID:");
+
+                JTextField searchField = new JTextField();
+
+                searchField.setPreferredSize(
+                                new Dimension(200, 28));
+
+                JButton searchButton = new JButton("Search");
+
+                searchButton.setPreferredSize(
+                                new Dimension(85, 28));
+
+                searchPanel.add(searchLabel);
+                searchPanel.add(searchField);
+                searchPanel.add(searchButton);
+
+                mainPanel.add(searchPanel);
+
+                mainPanel.add(
+                                Box.createVerticalStrut(20));
+
+                // ==============================
+                // RESULT AREA
+                // ==============================
+
+                JTextArea resultArea = new JTextArea();
+
+                resultArea.setEditable(false);
+
+                resultArea.setFont(
+                                new Font(
+                                                "Arial",
+                                                Font.PLAIN,
+                                                14));
+
+                resultArea.setBorder(
+                                BorderFactory.createLineBorder(
+                                                Color.GRAY));
+
+                JScrollPane resultScroll = new JScrollPane(
+                                resultArea);
+
+                resultScroll.setPreferredSize(
+                                new Dimension(500, 200));
+
+                mainPanel.add(resultScroll);
+
+                // ==============================
+                // SEARCH BUTTON ACTION
+                // ==============================
+
+                searchButton.addActionListener(e -> {
+
+                        String searchText = searchField.getText().trim();
+
+                        if (searchText.isEmpty()) {
+
+                                JOptionPane.showMessageDialog(
+                                                frame,
+                                                "Please enter a medicine name or ID.");
+
+                                return;
+                        }
+
+                        MedicineDAO dao = new MedicineDAO();
+
+                        // Clear previous result
+
+                        resultArea.setText("");
+
+                        // ==============================
+                        // SEARCH BY ID
+                        // ==============================
+
+                        try {
+
+                                int id = Integer.parseInt(
+                                                searchText);
+
+                                Medicine medicine = dao.searchMedicineById(id);
+
+                                if (medicine != null) {
+
+                                        resultArea.append(
+                                                        "Medicine ID: "
+                                                                        + medicine.getId()
+                                                                        + "\n");
+
+                                        resultArea.append(
+                                                        "Name: "
+                                                                        + medicine.getName()
+                                                                        + "\n");
+
+                                        resultArea.append(
+                                                        "Category: "
+                                                                        + medicine.getCategory()
+                                                                        + "\n");
+
+                                        resultArea.append(
+                                                        "Price: "
+                                                                        + medicine.getPrice()
+                                                                        + "\n");
+
+                                        resultArea.append(
+                                                        "Quantity: "
+                                                                        + medicine.getQuantity()
+                                                                        + "\n");
+
+                                        resultArea.append(
+                                                        "Expiry Date: "
+                                                                        + medicine.getExpiryDate()
+                                                                        + "\n");
+
+                                        resultArea.append(
+                                                        "Prescription Required: "
+                                                                        + (medicine.isPrescriptionRequired()
+                                                                                        ? "Yes"
+                                                                                        : "No"));
+
+                                } else {
+
+                                        resultArea.setText(
+                                                        "No medicine found with ID: "
+                                                                        + id);
+                                }
+
+                        } catch (NumberFormatException ex) {
+
+                                // ==============================
+                                // SEARCH BY NAME
+                                // ==============================
+
+                                java.util.ArrayList<Medicine> medicines = dao.searchMedicineByName(
+                                                searchText);
+
+                                if (medicines.isEmpty()) {
+
+                                        resultArea.setText(
+                                                        "No medicine found with name: "
+                                                                        + searchText);
+
+                                } else {
+
+                                        for (Medicine medicine : medicines) {
+
+                                                resultArea.append(
+                                                                "Medicine ID: "
+                                                                                + medicine.getId()
+                                                                                + "\n");
+
+                                                resultArea.append(
+                                                                "Name: "
+                                                                                + medicine.getName()
+                                                                                + "\n");
+
+                                                resultArea.append(
+                                                                "Category: "
+                                                                                + medicine.getCategory()
+                                                                                + "\n");
+
+                                                resultArea.append(
+                                                                "Price: "
+                                                                                + medicine.getPrice()
+                                                                                + "\n");
+
+                                                resultArea.append(
+                                                                "Quantity: "
+                                                                                + medicine.getQuantity()
+                                                                                + "\n");
+
+                                                resultArea.append(
+                                                                "Expiry Date: "
+                                                                                + medicine.getExpiryDate()
+                                                                                + "\n");
+
+                                                resultArea.append(
+                                                                "Prescription Required: "
+                                                                                + (medicine.isPrescriptionRequired()
+                                                                                                ? "Yes"
+                                                                                                : "No"));
+
+                                                resultArea.append(
+                                                                "\n\n-------------------------\n\n");
+                                        }
+                                }
+                        }
+                });
+
+                // ==============================
+                // ADD TO CONTENT PANEL
+                // ==============================
+
+                contentPanel.add(
+                                mainPanel,
+                                BorderLayout.CENTER);
+
+                contentPanel.revalidate();
+
+                contentPanel.repaint();
+        }
+        // =====================================================
+        // VIEW MEDICINES
+        // =====================================================
+
+        static void showViewMedicines() {
+
+                contentPanel.removeAll();
+
+                JLabel title = new JLabel(
+                                "All Medicines",
+                                SwingConstants.CENTER);
+
+                title.setFont(
+                                new Font("Arial", Font.BOLD, 23));
+
+                // Get medicines from MySQL
+                MedicineDAO dao = new MedicineDAO();
+
+                java.util.ArrayList<Medicine> medicines = dao.getAllMedicines();
+
+                // Table column names
+                String[] columns = {
+                                "ID",
+                                "Name",
+                                "Category",
+                                "Price",
+                                "Quantity",
+                                "Expiry Date",
+                                "Prescription"
+                };
+
+                // Create table data
+                String[][] data = new String[medicines.size()][7];
+
+                for (int i = 0; i < medicines.size(); i++) {
+
+                        Medicine medicine = medicines.get(i);
+
+                        data[i][0] = String.valueOf(
+                                        medicine.getId());
+
+                        data[i][1] = medicine.getName();
+
+                        data[i][2] = medicine.getCategory();
+
+                        data[i][3] = String.valueOf(
+                                        medicine.getPrice());
+
+                        data[i][4] = String.valueOf(
+                                        medicine.getQuantity());
+
+                        data[i][5] = medicine.getExpiryDate();
+
+                        data[i][6] = medicine.isPrescriptionRequired()
+                                        ? "Yes"
+                                        : "No";
                 }
-            }
-        });
 
-        // ==============================
-        // ADD TO CONTENT PANEL
-        // ==============================
+                // Create table
+                JTable table = new JTable(
+                                data,
+                                columns);
 
-        contentPanel.add(
-                mainPanel,
-                BorderLayout.CENTER);
+                table.setRowHeight(28);
 
-        contentPanel.revalidate();
+                JScrollPane scrollPane = new JScrollPane(table);
 
-        contentPanel.repaint();
-    }
-    // =====================================================
-    // VIEW MEDICINES
-    // =====================================================
+                contentPanel.add(
+                                title,
+                                BorderLayout.NORTH);
 
-    static void showViewMedicines() {
+                contentPanel.add(
+                                scrollPane,
+                                BorderLayout.CENTER);
 
-        contentPanel.removeAll();
-
-        JLabel title = new JLabel(
-                "All Medicines",
-                SwingConstants.CENTER);
-
-        title.setFont(
-                new Font("Arial", Font.BOLD, 23));
-
-        // Get medicines from MySQL
-        MedicineDAO dao = new MedicineDAO();
-
-        java.util.ArrayList<Medicine> medicines = dao.getAllMedicines();
-
-        // Table column names
-        String[] columns = {
-                "ID",
-                "Name",
-                "Category",
-                "Price",
-                "Quantity",
-                "Expiry Date",
-                "Prescription"
-        };
-
-        // Create table data
-        String[][] data = new String[medicines.size()][7];
-
-        for (int i = 0; i < medicines.size(); i++) {
-
-            Medicine medicine = medicines.get(i);
-
-            data[i][0] = String.valueOf(
-                    medicine.getId());
-
-            data[i][1] = medicine.getName();
-
-            data[i][2] = medicine.getCategory();
-
-            data[i][3] = String.valueOf(
-                    medicine.getPrice());
-
-            data[i][4] = String.valueOf(
-                    medicine.getQuantity());
-
-            data[i][5] = medicine.getExpiryDate();
-
-            data[i][6] = medicine.isPrescriptionRequired()
-                    ? "Yes"
-                    : "No";
+                contentPanel.revalidate();
+                contentPanel.repaint();
         }
+        // =====================================================
+        // STOCK & EXPIRY
+        // =====================================================
 
-        // Create table
-        JTable table = new JTable(
-                data,
-                columns);
+        // =====================================================
+        // STOCK & EXPIRY
+        // =====================================================
 
-        table.setRowHeight(28);
+        static void showStockExpiry() {
 
-        JScrollPane scrollPane = new JScrollPane(table);
+                contentPanel.removeAll();
 
-        contentPanel.add(
-                title,
-                BorderLayout.NORTH);
+                JLabel title = new JLabel(
+                                "Stock & Expiry",
+                                SwingConstants.CENTER);
 
-        contentPanel.add(
-                scrollPane,
-                BorderLayout.CENTER);
+                title.setFont(
+                                new Font(
+                                                "Arial",
+                                                Font.BOLD,
+                                                23));
 
-        contentPanel.revalidate();
-        contentPanel.repaint();
-    }
-    // =====================================================
-    // STOCK & EXPIRY
-    // =====================================================
+                // ==============================
+                // GET DATA FROM MYSQL
+                // ==============================
 
-    // =====================================================
-    // STOCK & EXPIRY
-    // =====================================================
+                MedicineDAO dao = new MedicineDAO();
 
-    static void showStockExpiry() {
+                java.util.ArrayList<Medicine> medicines = dao.getStockAndExpiry();
 
-        contentPanel.removeAll();
+                // ==============================
+                // TABLE COLUMNS
+                // ==============================
 
-        JLabel title = new JLabel(
-                "Stock & Expiry",
-                SwingConstants.CENTER);
+                String[] columns = {
 
-        title.setFont(
-                new Font(
-                        "Arial",
-                        Font.BOLD,
-                        23));
+                                "ID",
+                                "Medicine",
+                                "Quantity",
+                                "Expiry Date",
+                                "Status"
 
-        // ==============================
-        // GET DATA FROM MYSQL
-        // ==============================
+                };
 
-        MedicineDAO dao = new MedicineDAO();
+                // ==============================
+                // CREATE TABLE DATA
+                // ==============================
 
-        java.util.ArrayList<Medicine> medicines = dao.getStockAndExpiry();
+                String[][] data = new String[medicines.size()][5];
 
-        // ==============================
-        // TABLE COLUMNS
-        // ==============================
+                for (int i = 0; i < medicines.size(); i++) {
 
-        String[] columns = {
+                        Medicine medicine = medicines.get(i);
 
-                "ID",
-                "Medicine",
-                "Quantity",
-                "Expiry Date",
-                "Status"
+                        data[i][0] = String.valueOf(
+                                        medicine.getId());
 
-        };
+                        data[i][1] = medicine.getName();
 
-        // ==============================
-        // CREATE TABLE DATA
-        // ==============================
+                        data[i][2] = String.valueOf(
+                                        medicine.getQuantity());
 
-        String[][] data = new String[medicines.size()][5];
+                        data[i][3] = medicine.getExpiryDate();
 
-        for (int i = 0; i < medicines.size(); i++) {
+                        // ==============================
+                        // STOCK / EXPIRY STATUS
+                        // ==============================
 
-            Medicine medicine = medicines.get(i);
+                        int quantity = medicine.getQuantity();
 
-            data[i][0] = String.valueOf(
-                    medicine.getId());
+                        String expiryDate = medicine.getExpiryDate();
 
-            data[i][1] = medicine.getName();
+                        java.time.LocalDate expiry = java.time.LocalDate.parse(
+                                        expiryDate);
 
-            data[i][2] = String.valueOf(
-                    medicine.getQuantity());
+                        java.time.LocalDate today = java.time.LocalDate.now();
 
-            data[i][3] = medicine.getExpiryDate();
+                        if (expiry.isBefore(today)) {
 
-            // ==============================
-            // STOCK / EXPIRY STATUS
-            // ==============================
+                                data[i][4] = "Expired";
 
-            int quantity = medicine.getQuantity();
+                        } else if (quantity <= 10) {
 
-            String expiryDate = medicine.getExpiryDate();
+                                data[i][4] = "Low Stock";
 
-            java.time.LocalDate expiry = java.time.LocalDate.parse(
-                    expiryDate);
+                        } else {
 
-            java.time.LocalDate today = java.time.LocalDate.now();
+                                data[i][4] = "Available";
+                        }
+                }
 
-            if (expiry.isBefore(today)) {
+                // ==============================
+                // CREATE TABLE
+                // ==============================
 
-                data[i][4] = "Expired";
+                JTable table = new JTable(
+                                data,
+                                columns);
 
-            } else if (quantity <= 10) {
+                table.setRowHeight(30);
 
-                data[i][4] = "Low Stock";
+                JScrollPane scrollPane = new JScrollPane(
+                                table);
 
-            } else {
+                // ==============================
+                // ADD TO CONTENT PANEL
+                // ==============================
 
-                data[i][4] = "Available";
-            }
+                contentPanel.add(
+                                title,
+                                BorderLayout.NORTH);
+
+                contentPanel.add(
+                                scrollPane,
+                                BorderLayout.CENTER);
+
+                contentPanel.revalidate();
+
+                contentPanel.repaint();
         }
-
-        // ==============================
-        // CREATE TABLE
-        // ==============================
-
-        JTable table = new JTable(
-                data,
-                columns);
-
-        table.setRowHeight(30);
-
-        JScrollPane scrollPane = new JScrollPane(
-                table);
-
-        // ==============================
-        // ADD TO CONTENT PANEL
-        // ==============================
-
-        contentPanel.add(
-                title,
-                BorderLayout.NORTH);
-
-        contentPanel.add(
-                scrollPane,
-                BorderLayout.CENTER);
-
-        contentPanel.revalidate();
-
-        contentPanel.repaint();
-    }
 }
